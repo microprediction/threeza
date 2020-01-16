@@ -30,4 +30,6 @@ setup(
         "console_scripts": [
             "threeza=threeza.__main__:main",
         ]
+     },
+     )
     
