@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="threeza",
-    version="0.2.1",
+    version="0.2.4",
     description="Crowd Collective Artificial Intelligence",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -23,7 +23,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["threeza"],
+    packages=find_packages(),    # ["threeza","threeza.Futurithmia","threeza.crypto"],
     test_suite='pytest',
     tests_require=['pytest'],
     include_package_data=True,

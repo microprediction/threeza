@@ -3,7 +3,6 @@ from threeza.location import assert_algorithmia_web
 assert_algorithmia_web(message="Intended for use inside Algorithmia Marketplace")
 
 
-import os
 from threeza.crypto.primitives import to_public
 import Algorithmia
 from Algorithmia.acl import ReadAcl

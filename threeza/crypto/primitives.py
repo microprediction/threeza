@@ -6,8 +6,8 @@ import uuid
 def hash5(key):
 	return str(uuid.uuid5(uuid.NAMESPACE_DNS, key))
 
-def to_public(privateKey):
-	return hash5(hash5(privateKey))
+def to_public(private_key):
+	return hash5(hash5(private_key))
 
 def random_key():
 	return str(uuid.uuid4())
