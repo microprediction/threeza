@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="threeza",
-    version="0.0.1",
+    version="0.1.0",
     description="Fun fame and fortune",
     long_description=README,
     long_description_content_type="text/markdown",
