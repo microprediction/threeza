@@ -11,7 +11,7 @@ README = (HERE / "README.md").read_text()
 setup(
     name="threeza",
     version="0.2.1",
-    description="Fun fame and fortune",
+    description="Crowd Collective Artificial Intelligence",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/microprediction/threeza",
