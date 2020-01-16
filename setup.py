@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
@@ -24,6 +24,8 @@ setup(
         "Programming Language :: Python :: 3.7",
     ],
     packages=["threeza"],
+    test_suite='pytest',
+    tests_require=['pytest'],
     include_package_data=True,
     install_requires=['Algorithmia'],
     entry_points={
@@ -32,4 +34,3 @@ setup(
         ]
      },
      )
-    
