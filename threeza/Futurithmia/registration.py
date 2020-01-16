@@ -1,8 +1,10 @@
-# A few tools for quick registration at www.3za.org
-import os
+#
 from threeza.location import assert_algorithmia_web
-from threeza.crypto.primitives import to_public
 assert_algorithmia_web(message="Intended for use inside Algorithmia Marketplace")
+
+
+import os
+from threeza.crypto.primitives import to_public
 import Algorithmia
 from Algorithmia.acl import ReadAcl
 client = Algorithmia.client()

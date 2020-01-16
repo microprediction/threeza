@@ -5,7 +5,8 @@ import os
 class Location(Enum):
         ALGORITHMIA_WEB   = 1
         ALGORITHMIA_LOCAL = 2
-        ELSEWHERE = 3
+        AWS_LAMBDA        = 4
+        ELSEWHERE = 99
 
 def whereami():
     if os.environ.get("ALGORITHMIA_API_KEY") is None:
