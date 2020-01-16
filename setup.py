@@ -25,7 +25,7 @@ setup(
     ],
     packages=["threeza"],
     include_package_data=True,
-    install_requires=[],
+    install_requires=['Algorithmia'],
     entry_points={
         "console_scripts": [
             "threeza=threeza.__main__:main",
