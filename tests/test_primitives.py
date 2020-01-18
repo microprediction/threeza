@@ -1,4 +1,4 @@
-from threeza.crypto.primitives import hash5, random_key, to_public
+from threeza.primitives import hash5, random_key, to_public
 
 def test_keys():
     private_key = random_key()
