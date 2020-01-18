@@ -10,8 +10,8 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="threeza",
-    version="0.2.12",
-    description="Minimalist conventions for www.3za.org experiment",
+    version="0.2.13",
+    description="In support of www.3za.org ",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/microprediction/threeza",
@@ -23,7 +23,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["threeza"],
+    packages=["threeza","threeza.web","threeza.web.content"],
     test_suite='pytest',
     tests_require=['pytest'],
     include_package_data=True,
