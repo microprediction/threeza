@@ -7,21 +7,14 @@ from typing import Union, List
 
 # -------- Web site content etc ---------------------------------
 
-try:
-    import importlib.resources as pkg_resources
-except ImportError:
-    # Try backported to PY<37 `importlib_resources`.
-    import importlib_resources as pkg_resources
-
+import pkg_resources
 from . import content  # relative-import the *package* containing the templates
 
 def site_content(page_name:str)->str:
-    if not page_name[-5:]==".html":
-        page_name = page_name+".html"
-    try:
-        return pkg_resources.read_text(content,page_name)
-    except:
-        return "<html> Missing site material for "+page_name+" </html>"
+    filepath = pkg_resources.resource_filename(__name__, "content/"+page_name)
+    with open(filepath) as f:
+        html = f.read()
+    return html
 
 # -------- Basic fetching and caching ---------------------------------
 # TODO: Move aiohttp async stuff here

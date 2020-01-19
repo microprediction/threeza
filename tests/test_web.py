@@ -39,8 +39,11 @@ def test_render_pipe():
 # --- Testing when they dont ----
 
 def test_site_content_fail():
-    html = site_content("index__.html")
-    assert "<html>" in html
+    try:
+        html = site_content("index__.html")
+        assert False
+    except:
+        assert True
 
 def test_render_mirror_fail():
     instructions = "https://feeds.citibikenyc.com/stations/stations__.json"
