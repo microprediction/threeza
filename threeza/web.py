@@ -5,7 +5,7 @@ import requests
 import json
 from typing import Union, List
 
-# -------- Highly rudimentary web site  ---------------------------------
+# -------- Web site content etc ---------------------------------
 
 try:
     import importlib.resources as pkg_resources
@@ -22,6 +22,9 @@ def site_content(page_name:str)->str:
         return pkg_resources.read_text(content,page_name)
     except:
         return "<html> Missing site material for "+page_name+" </html>"
+
+# -------- Basic fetching and caching ---------------------------------
+# TODO: Move aiohttp async stuff here
 
 @cached(TTLCache(1000,1))
 def get_url(url):
@@ -63,7 +66,7 @@ def render_jsonpath(url,json_path:str,full=False) -> str:
     except Exception as e:
         instructions.update({"error":"Error matching with  "+json_path+" "+str(e)})
         return json.dumps(instructions)
-        
+
 
 
 def render_jsonpaths(url:str,json_paths:List[str]) -> str:

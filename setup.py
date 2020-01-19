@@ -23,11 +23,11 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["threeza","threeza.web","threeza.web.content"],
+    packages=["threeza","threeza.content"],
     test_suite='pytest',
     tests_require=['pytest'],
     include_package_data=True,
-    install_requires=[],
+    install_requires=["cachetools","pathlib","jsonpath_ng","requests"],
     entry_points={
         "console_scripts": [
             "threeza=threeza.__main__:main",
