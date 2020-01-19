@@ -4,6 +4,7 @@ from jsonpath_ng.ext import parse
 import requests
 import json
 from typing import Union, List
+from .web_utils import get_url, is_url
 
 # -------- Web site content etc ---------------------------------
 
@@ -11,27 +12,10 @@ import pkg_resources
 from . import content  # relative-import the *package* containing the templates
 
 def site_content(page_name:str)->str:
-    filepath = pkg_resources.resource_filename(__name__, "content/"+page_name)
+    filepath = pkg_resources.resource_filename("threeza", "content/"+page_name)
     with open(filepath) as f:
         html = f.read()
     return html
-
-# -------- Basic fetching and caching ---------------------------------
-# TODO: Move aiohttp async stuff here
-
-@cached(TTLCache(1000,1))
-def get_url(url):
-    r = requests.get(url)
-    if r.status_code==200:
-        return r.content
-    else:
-        raise Exception(url)
-
-@cached(cache=LRUCache(maxsize=50))
-def is_url(s:str):
-    import re
-    url_regex = re.compile(r'^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$',re.IGNORECASE)
-    return re.match(url_regex, s) is not None
 
 
 # -----------------  Instruction interpretation   ------------------
@@ -41,7 +25,7 @@ def is_url(s:str):
 #   www.3za.org/pipe/        Invoke Algorithmia algorithm
 
 
-def render_jsonpath(url,json_path:str,full=False) -> str:
+def render_jsonpath(url,json_path:str,full=False,**ignored) -> str:
     instructions = {"url":url,"json_path":json_path,"full":full,"error_advice":"Try debugging at https://jsonpath.curiousconcept.com/"}
     obj   = json.loads(get_url(url))
     try:
@@ -62,7 +46,7 @@ def render_jsonpath(url,json_path:str,full=False) -> str:
 
 
 
-def render_jsonpaths(url:str,json_paths:List[str]) -> str:
+def render_jsonpaths(url:str,json_paths:List[str],**ignored) -> str:
     instructions = {"url":url,"json_paths":json_paths}
     try:
         obj   = json.loads(get_url(url))
@@ -94,12 +78,12 @@ def render_mirror(url:str) -> str:
             except:
                 return json.dumps({"url":url,"error":"Could not get_url"})
 
-def render_pipe(algo_name,api_key,input=None,input_url=None):
+def render_pipe(algo_name,api_key,input=None,input_url=None,**ignored):
     """ Call Algorithmia algorithm """
     return cached_render_pipe(algo_name,api_key,input,input_url)
 
 @cached(TTLCache(1000,1))
-def cached_render_pipe(algo_name:str,api_key:str,input:str=None,input_url:str=None)->str:
+def cached_render_pipe(algo_name:str,api_key:str,input:str=None,input_url:str=None,**ignored)->str:
 
     instructions = {"algo_name":algo_name,"api_key":api_key,"input":input, "input_url":input_url}
     if not '/' in algo_name:
