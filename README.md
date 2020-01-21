@@ -1,5 +1,3 @@
 # threeza
 
-Minimalist conventions for 3za.org
-
-This is not intended to be a flask app, merely ingredients for one.
+Minimalist conventions for www.3za.org
