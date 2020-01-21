@@ -2,9 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
 from matplotlib import animation
-from .splash_screen_physics_engine import Particle, Simulation
+from .physics_engine import Particle, Simulation
 from intechinvestments import brand
 from intechinvestments.brand import intech_purple, intech_yellow
+
+# Forked from a project by Christian Hill at https://github.com/xnx/collision
+# For more information, see [Christian's blog post](https://scipython.com/blog/two-dimensional-collisions/)
+
+
+
 
 
 SMALL_RADIUS = 0.01
@@ -30,6 +36,30 @@ SUN_MASS     = 0.01*(SUN_RATIO)*LARGE_PARTICLE_MASS
 SUN_RADIUS   = SUN_RATIO*LARGE_RADIUS
 
 #--------------------------------------------------------------------
+
+
+def show():
+    # Simulation similar to splash screen
+    nparticles = NUM_PARTICLES
+    small_particle_radius = SMALL_RADIUS
+    styles = {'facecolor':intech_purple,'edgecolor': intech_purple, 'linewidth': 2, 'fill': True}
+
+    sim = PeriodicSimulation(n=nparticles, radius=small_particle_radius, styles=styles)
+    # Despite being bigger, set the mass of the large particle to be the same
+    # as the small ones so it gains a bit of momentum in the collisions
+    sim.particles[0].mass = SUN_MASS
+    sim.particles[0].has_image = True
+    for k in range(1,NUM_LARGE+1):
+        sim.particles[k].mass = LARGE_PARTICLE_MASS
+    for k in range(NUM_LARGE,nparticles):
+        try:
+            sim.particles[k].mass = SMALL_PARTICLE_MASS
+        except:
+            pass
+
+    sim.dt = 0.02
+    sim.do_animation(save=False)
+
 
 
 
@@ -133,27 +163,7 @@ class PeriodicSimulation(Simulation):
         self.save_or_show_animation(anim, save, filename)
 
 
-def show_intech_splash():
-    # Simulation similar to splash screen
-    nparticles = NUM_PARTICLES
-    small_particle_radius = SMALL_RADIUS
-    styles = {'facecolor':intech_purple,'edgecolor': intech_purple, 'linewidth': 2, 'fill': True}
 
-    sim = PeriodicSimulation(n=nparticles, radius=small_particle_radius, styles=styles)
-    # Despite being bigger, set the mass of the large particle to be the same
-    # as the small ones so it gains a bit of momentum in the collisions
-    sim.particles[0].mass = SUN_MASS
-    sim.particles[0].has_image = True
-    for k in range(1,NUM_LARGE+1):
-        sim.particles[k].mass = LARGE_PARTICLE_MASS
-    for k in range(NUM_LARGE,nparticles):
-        try:
-            sim.particles[k].mass = SMALL_PARTICLE_MASS
-        except:
-            pass
-
-    sim.dt = 0.02
-    sim.do_animation(save=False)
 
 
 if __name__ == '__main__':
