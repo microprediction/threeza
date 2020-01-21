@@ -6,24 +6,11 @@ import json
 from typing import Union, List
 from .web_utils import get_url, is_url
 
-# -------- Web site content etc ---------------------------------
-
-import pkg_resources
-from . import content  # relative-import the *package* containing the templates
-
-def site_content(page_name:str)->str:
-    filepath = pkg_resources.resource_filename("threeza", "content/"+page_name)
-    with open(filepath) as f:
-        html = f.read()
-    return html
-
-
 # -----------------  Instruction interpretation   ------------------
 #   www.3za.org/jsonpath/
 #   www.3za.org/jsonpaths/
 #   www.3za.org/mirror/
 #   www.3za.org/pipe/        Invoke Algorithmia algorithm
-
 
 def render_jsonpath(url,json_path:str,full=False,**ignored) -> str:
     instructions = {"url":url,"json_path":json_path,"full":full,"error_advice":"Try debugging at https://jsonpath.curiousconcept.com/"}

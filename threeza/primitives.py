@@ -1,4 +1,6 @@
 import uuid
+import json
+
 
 # Conventions used at www.3za.org
 # Discuss at https://algorithmia.com/algorithms/threezakeys/Hash/discussion

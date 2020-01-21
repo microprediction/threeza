@@ -9,7 +9,6 @@ def is_url(url):
 def get_url(url):
     return get_url_cached(url)
 
-
 @cached(TTLCache(1000,1))
 def get_url_cached(url):
     r = requests.get(url)

@@ -1,13 +1,8 @@
-from threeza.web import site_content, render_jsonpath, render_jsonpaths, render_mirror,render_pipe
+from threeza.web import render_jsonpath, render_jsonpaths, render_mirror,render_pipe
 import json
 
 
 # --- Testing when they work ----
-def test_site_content():
-    html = site_content("index.html")
-    assert "Threeza" in html
-    assert "<html>" in html
-
 def test_render_mirror():
     instructions = "https://feeds.citibikenyc.com/stations/stations.json"
     res = render_mirror(instructions)
@@ -38,12 +33,7 @@ def test_render_pipe():
 
 # --- Testing when they dont ----
 
-def test_site_content_fail():
-    try:
-        html = site_content("index__.html")
-        assert False
-    except:
-        assert True
+
 
 def test_render_mirror_fail():
     instructions = "https://feeds.citibikenyc.com/stations/stations__.json"
