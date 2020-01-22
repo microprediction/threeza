@@ -6,10 +6,10 @@ from .physics_engine import Particle, Simulation
 from intechinvestments import brand
 from intechinvestments.brand import intech_purple, intech_yellow
 
+# Supercollider splash screen simulation
+#
 # Forked from a project by Christian Hill at https://github.com/xnx/collision
-# For more information, see [Christian's blog post](https://scipython.com/blog/two-dimensional-collisions/)
-
-
+# See Christian's blog post at https://scipython.com/blog/two-dimensional-collisions/
 
 
 

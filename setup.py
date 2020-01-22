@@ -27,7 +27,7 @@ setup(
     test_suite='pytest',
     tests_require=['pytest'],
     include_package_data=True,
-    install_requires=["cachetools","pathlib","jsonpath_ng","requests","matplotlib","intechinvestments"],
+    install_requires=["threezaconventions","cachetools","pathlib","jsonpath_ng","requests","matplotlib","intechinvestments"],
     entry_points={
         "console_scripts": [
             "threeza=threeza.__main__:main",
