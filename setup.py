@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="threeza",
-    version="1.0.1",
+    version="1.0.2",
     description="Lottery like mechanisms for crowd-sourcing",
     long_description=README,
     long_description_content_type="text/markdown",
