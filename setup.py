@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="threeza",
-    version="0.2.31",
+    version="0.3.0",
     description="In support of www.3za.org ",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -23,11 +23,11 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["threeza","threeza.static","threeza.templates","threeza.collider"],
+    packages=["threeza","threeza.collider"],
     test_suite='pytest',
     tests_require=['pytest'],
     include_package_data=True,
-    install_requires=["threezaconventions","cachetools","pathlib","jsonpath_ng","requests","matplotlib","intechinvestments"],
+    install_requires=["threezaconventions","cachetools","pathlib","jsonpath_ng","requests","matplotlib"],
     entry_points={
         "console_scripts": [
             "threeza=threeza.__main__:main",
