@@ -10,13 +10,13 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="threeza",
-    version="0.3.0",
-    description="In support of www.3za.org ",
+    version="0.3.1",
+    description="Crowdsourcing",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/microprediction/threeza",
     author="microprediction",
-    author_email="info@3za.org",
+    author_email="peter.cotton@microprediction.com",
     license="MIT",
     classifiers=[
         "License :: OSI Approved :: MIT License",
