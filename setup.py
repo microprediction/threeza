@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="threeza",
-    version="1.0.2",
+    version="1.0.3",
     description="Lottery like mechanisms for crowd-sourcing",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -20,7 +20,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["threeza","threeza.inclusion"],
+    packages=["threeza","threeza.inclusion","threeza.crowd"],
     test_suite='pytest',
     tests_require=['pytest'],
     include_package_data=True,
