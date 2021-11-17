@@ -1,4 +1,4 @@
-from threeza.discrete.ongoingcategoricallottery import OngoingCategoricalLottery
+from threeza.crowd.ongoingcategoricallottery import OngoingCategoricalLottery
 from threeza.conventions import MAX_TAU
 
 # A one-off categorical lottery is represented as a special case of an ongoing categorical lottery.

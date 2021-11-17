@@ -1,4 +1,4 @@
-from threeza.discrete.ongoingcategoricallottery import OngoingCategoricalLottery
+from threeza.crowd.ongoingcategoricallottery import OngoingCategoricalLottery
 from threeza.conventions import equal_rewards
 from threeza.conventions import consolidate_rewards
 from pprint import pprint

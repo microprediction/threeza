@@ -5,7 +5,7 @@ from threeza.inclusion.timemachinesinclusion import using_timemachines
 
 if using_momentum and using_timemachines and using_numpy:
 
-    from threeza.discrete.ongoingcategoricallottery import OngoingCategoricalLottery
+    from threeza.crowd.ongoingcategoricallottery import OngoingCategoricalLottery
     from threeza.conventions import horizon_str_to_k_and_tau
     from timemachines.skaters.localskaters import local_skater_from_name, LOCAL_SKATERS
     from momentum import var_init, var_update
